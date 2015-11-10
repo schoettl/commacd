@@ -228,18 +228,18 @@ _commacd_backward_forward_completion() {
 }
 
 _commacd_forward_spacesep() {
-    local path="$@"
-    _commacd_forward ${path//\ //}
+  local path="$*"
+  _commacd_forward "${path//\ //}"
 }
 
 _commacd_backward_spacesep() {
-    local path="$@"
-    _commacd_backward ${path//\ //}
+  local path="$*"
+  _commacd_backward "${path//\ //}"
 }
 
 _commacd_backward_forward_spacesep() {
-    local path="$@"
-    _commacd_backward_forward ${path//\ //}
+  local path="$*"
+  _commacd_backward_forward "${path//\ //}"
 }
 
 if [[ -z $COMMACD_SPACESEP ]]; then
