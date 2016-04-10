@@ -242,6 +242,8 @@ _commacd_backward_forward_spacesep() {
   _commacd_backward_forward "${path//\ //}"
 }
 
+# create different sets of aliases for better performance
+# -> only one if check here, not on every use of commacd
 if [[ -z $COMMACD_SPACESEP ]]; then
   alias ,=_commacd_forward
   alias ,,=_commacd_backward
@@ -252,6 +254,7 @@ else
   alias ,,,=_commacd_backward_forward_spacesep
 fi
 
+# tab completion only works when / is used instead of space
 complete -o filenames -F _commacd_forward_completion ,
 complete -o filenames -F _commacd_backward_completion ,,
 complete -o filenames -F _commacd_backward_forward_completion ,,,
